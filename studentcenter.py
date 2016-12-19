@@ -15,6 +15,7 @@ from lecture import *
 from user import *
 from util import *
 from question import *
+from FinalUnitTests import *
 
 class StudentCenter(webapp2.RequestHandler):
     def get(self):
@@ -41,17 +42,18 @@ class StudentCenter(webapp2.RequestHandler):
     def post(self):
         q = Question()
         m = Message()
-        q.student = self.request.cookies.get("CurrentUser")
-        q.topic = self.request.get("topic")
-        m.content = self.request.get("content")
-        m.name = self.request.cookies.get("CurrentUser")
-        q.lec = self.request.get("lecture")
-        q.time = datetime.datetime.now()
-        q.answered = False
-        q.ML.append(m)
-        key = q.put()
-        m.put()
-        lec = Lecture.query(Lecture.name==self.request.get("lecture")).get()
-        lec.QL.append(key.urlsafe())
-        lec.put()
-        self.redirect("/studentcenter" + "?quest" + self.request.get("Quest"))
+        if self.request.get("lecture") == None:
+            q.student = self.request.cookies.get("CurrentUser")
+            q.topic = self.request.get("topic")
+            m.content = self.request.get("content")
+            m.name = self.request.cookies.get("CurrentUser")
+            q.lec = self.request.get("lecture")
+            q.time = datetime.datetime.now()
+            q.answered = False
+            q.ML.append(m)
+            key = q.put()
+            m.put()
+            lec = Lecture.query(Lecture.name==self.request.get("lecture")).get()
+            lec.QL.append(key.urlsafe())
+            lec.put()
+            self.redirect("/studentcenter" + "?quest" + self.request.get("Quest"))

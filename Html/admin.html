@@ -56,12 +56,12 @@
   </style>
   <html>
     <head>
-      <link rel="stylesheet" type="text/css" href="style/style.css">
+      <link rel="stylesheet" type="text/css" href="Style/style.css">
       <title>
         Administrator Page
       </title>
     </head>
-    <body><img src="style/wallpapersprint.png">
+
       <ul>
         <li><a class="active" href="/">Home</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -70,14 +70,25 @@
         <li><a href="/admin"> Admin Page </a></li>
         {% endif %}
       </ul>
-      <form action="/createUsers" method="post">
-        <textarea rows="4" cols="50" name="userText"></textarea>
-        <input type="submit" value="Submit">
+      <h2 style="color:black; margin-left: 30%; margin-right: 20%;">Add Users</h2>
+      <form action="/createUsers" method="post" style="margin-left: 40%; margin-right: 20%;">
+        <textarea rows="4" cols="50" name="userText" style="margin-left: 5%; margin-right: 20%;" placeholder="Add users here"></textarea>
+        <br><input type="submit" value="Submit" style="margin-left: 30%; margin-right: 20%;">
       </form>
+      
+      <div align="center" id="div2">
+          <form action="/createLecture" method="post">
+              <h2 style="color:black;"> Make new Lecture</h2>
+              <input type="text" name="lecName" required="True" placeholder="New Lecture">
+                  <br>
+                  <input type="submit" value="Submit">
+                      </form>
+      </div>
+      
       <div  id="div2" align="center">
         <h2 style="color:black;"> Enroll Users into lectures</h2>
         <form action="/enroll" method="post" >
-          <table>
+          <table style="margin-left: 20%; margin-right: 20%;">
             <tr>
               <th>Users</th>
             </tr>
@@ -87,7 +98,9 @@
             </tr>
             {% endfor %}
           </table>
-          <table>
+          <br>
+
+          <table style="margin-left: 20%; margin-right: 20%;">
             <tr>
               <th>Lectures</th>
             </tr>
@@ -101,18 +114,5 @@
         </form>
         <br>
       </div>
-
-      <div align="center" id="div2">
-        <form action="/createLecture" method="post">
-          <h2 style="color:black;"> Make new Lecture</h2>
-          <br>
-          <p>Make new Lecture down Below</p>
-          <input type="text" name="lecName" required="True">
-          <br>
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-
-
     </body>
   </html>

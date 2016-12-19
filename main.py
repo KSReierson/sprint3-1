@@ -11,6 +11,7 @@ from google.appengine.ext import ndb
 from google.appengine.ext import testbed
 
 # Project imports
+from test import *
 from login import *
 from chat import *
 from adminpage import *
@@ -27,9 +28,9 @@ from faq import *
 from questionanswer import *
 
 # end touples need to be fixed so they have logout and adminpage
-parseUserString("es, Edward, 123, s\n") # Changed dummy names to mach their account type
-parseUserString("rdsi, Bob, 321, i\n")
-parseUserString("ksra, Kyle, asdf, a\n")
+parseUserString("es, Edward, 123, s\n")
+parseUserString("rds, Bob, 321, i\n")
+parseUserString("ksr, Kyle, asdf, a\n")
 
 app = webapp2.WSGIApplication([
 	('/', Login),
@@ -43,9 +44,8 @@ app = webapp2.WSGIApplication([
 	('/chat', Chat),
 	('/faq', FAQ),
 	('/response', Response),
+	#('/test', TestPage)
 
 ])
-
-# # Unit tests
-# suite = unittest.TestLoader().loadTestsFromTestCase(Test)
-# unittest.TextTestRunner().run(suite)
+#suite = unittest.TestLoader().loadTestsFromTestCase(Test)
+#unittest.TextTestRunner().run(suite)

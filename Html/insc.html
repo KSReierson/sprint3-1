@@ -66,7 +66,7 @@ divi:hover {
 <html lang="en-US">
 <head>
 	<title>Instructor Center</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" type="text/css" href="Style/style.css">
 </head>
 <body>
       <ul>
@@ -103,11 +103,12 @@ Your unanswered questions:
           <td>{{ q.lec }}</td>
           <td>{{ q.time.date() }}<br>{{ q.time.time() }}</td>
         </tr>
+        {% else %}
         {% endif %}
         {% endfor %}
       </table>
 
-      <input style="color:red;" type="submit" value="Go to Question">
+      <input style="color:blue;" type="submit" value="Go to Question">
     </form>
 </body>
 
@@ -115,9 +116,9 @@ Your unanswered questions:
 Ask a new question:
 <form action="/instructorcenter" method="post" id="questionForm">
 <br>
-  <input type="text" name="topic" value="topic" rows="1" cols="48" required="True">Enter Subject</textarea>
+  <input type="text" name="topic" placeholder="topic" rows="1" cols="48" required="True">Enter Subject</textarea>
 <br>
-  <input type="text" name="content" value="content" rows="5" cols="48" required="True">Enter Message body</textarea>
+  <input type="text" name="content" placeholder="content" rows="5" cols="48" required="True">Enter Message body</textarea>
 <br>
   <select name="student"form="questionForm">
     {%for s in SL %}
@@ -130,10 +131,8 @@ Ask a new question:
     <option value="{{l}}">{{l}}</option>
     {% endfor %}
   </select>
-
 <br>
-<input style="color:red;" type="submit" value= "Ask a question"/>
+<input style="color:blue;" type="submit" value= "Ask a question"/>
 </form>
 </div>
-
 </html>

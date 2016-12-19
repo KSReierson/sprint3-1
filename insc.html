@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <style>
-table {
+table, th, td {
       border: 1px solid black;
 }
 
@@ -69,6 +69,7 @@ divi:hover {
   <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
+    <img src="style/wallpapersprint.png" style="width:200px;height:100px;">
       <ul>
         <li><a class="active" href="/">Home</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -77,10 +78,21 @@ divi:hover {
         <li><a href="/admin"> Admin Page </a></li>
         {% endif %}
       </ul>
-    <h1 style="margin-left: 40%; margin-right: 20%;">
-Welcome {{CurrentUser.userName}}!
-</h1>
+    <h1 style="margin-left: 20%; margin-right: 20%;">
 <div>
+Welcome {{CurrentUser.userName}}!
+</div>
+    </h1>
+    <br>
+    <br>
+    <divi align = "left" id="div2">
+      <h2 style="color:black;margin-left:30px;"> To start Chat with Student</h2>
+      <p style="color:white;" align="center">Hold for help</p><br>
+      <p style="color:white;" align="center">Enter Topic in the first TextBox</p>
+      <p style="color:white;" align="center">The message body in the second</p>
+      <p style="color:white;" align="center">Select a Student from the drop down menu</p>
+    </divi>
+    <div>
 Your unanswered questions:
     <br>
 
@@ -101,9 +113,8 @@ Your unanswered questions:
           <td>{{ q.topic }}</td>
           <td>{{ q.student }}</td>
           <td>{{ q.lec }}</td>
-          <td>{{ q.time.date() }}<br>{{ q.time.time() }}</td>
+          <td>{{ q.time }}</td>
         </tr>
-        {% else %}
         {% endif %}
         {% endfor %}
       </table>

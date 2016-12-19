@@ -22,7 +22,7 @@ class AdminPage(webapp2.RequestHandler):
     def get(self):
         users = User.query().fetch()
         lectures = Lecture.query().fetch()
-        template = JINJA_ENVIRONMENT.get_template('/Html/responsive.html')
+        template = JINJA_ENVIRONMENT.get_template('/Html/admin.html')
         CurrentUser = self.request.cookies.get("CurrentUser")
         template_values = {
             "CurrentUser": CurrentUser,

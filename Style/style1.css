@@ -1,0 +1,338 @@
+body{
+	background: lightgrey;
+	font-family: garamond;
+	font-size: 110%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+        divi {
+        width: 200px;
+        height: 150px;
+            background: lightblue;
+            position: absolute;
+        -webkit-transition: height 2s; /* Safari */
+        transition: height 2s;
+            }
+
+/* For Safari 3.1 to 6.0 */
+
+#div2 {-webkit-transition-timing-function: ease;}
+
+
+/* Standard syntax */
+
+#div2 {transition-timing-function: ease;}
+
+divi:hover {
+    height: 500px;
+}
+
+h1, h2, h3, h4, h5, h6{
+	text-align: center;
+	font-family: helvetica;
+}
+
+p{
+	padding: 0%;
+	text-indent: 2ch;
+}
+
+hr {
+	height: 2px;
+	border: 0;
+	border-top: 1px solid black;
+  margin: 0px 0px 0px 0px;
+}
+
+ol{
+
+}
+
+.login{
+    font-family: helvetica;
+    text-align: center;
+}
+
+.chatArea{
+	margin-left: 27.5%;
+	padding: .2%;
+	width: 45%;
+	border: 2px solid green;
+	background-color: lightgreen;
+	height: 65%;
+	overflow: scroll;
+	resize: both;
+}
+
+.sMessage{
+	width: 33%;
+	background-color: lightyellow;
+	float: left;
+	clear: right;
+	border: 1px solid orange;
+	padding: 1%;
+	border-radius: 15px 0px 15px 15px;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.iMessage{
+	width: 33%;
+	background-color: lightblue;
+	float: right;
+	clear: left;
+	border: 1px solid blue;
+	padding: 1%;
+	border-radius: 0px 15px 15px 15px;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.messageMeta{
+	text-align: center;
+	font-family: helvetica;
+	font-size: 80%;
+}
+
+.question{
+    background-color: gold;
+	text-align: left;
+	text-indent: 2ch;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.answer{
+    background-color: skyblue;
+	text-align: left;
+	text-indent: 2ch;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.qaSubsection{
+	background-color: lightgreen;
+	text-align: center;
+	width: 80%;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+}
+
+div.question:before{
+	content: "Q: ";
+}
+
+div.answer:before{
+	content: "A: ";
+}
+
+div.iMessage + div.iMessage{
+	clear: right;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+div.sMessage + div.sMessage{
+	clear: left;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+div.iMessage > hr {
+	height: 1px;
+	border: 0;
+	border-top: 1px solid blue;
+}
+
+div.sMessage > hr {
+	height: 1px;
+	border: 0;
+	border-top: 1px solid orange;
+}
+
+div.chatArea + p + form{
+	width: 45%;
+	margin-left: 27.5%;
+}
+
+div.chatArea + p + form > textarea{
+	width: 100%;
+	height: 10%;
+}
+
+div.sMessage::selection{
+	color: lightyellow;
+	background-color: black;
+}
+
+div.sMessage::-moz-selection{
+	color: lightyellow;
+	background-color: black;
+}
+
+div.sMessage > div.messageMeta::selection{
+	color: lightyellow;
+	background-color: black;
+}
+
+div.sMessage > div.messageMeta::-moz-selection{
+	color: lightyellow;
+	background-color: black;
+}
+
+div.iMessage::selection{
+	color: lightblue;
+	background-color: black;
+}
+
+div.iMessage::-moz-selection{
+	color: lightblue;
+	background-color: black;
+}
+
+div.iMessage > div.messageMeta::selection{
+	color: lightblue;
+	background-color: black;
+}
+
+div.iMessage > div.messageMeta::-moz-selection{
+	color: lightblue;
+	background-color: black;
+}
+
+div.question::selection{
+  color: gold;
+  background-color: black;
+}
+
+div.answer::selection{
+  color: skyblue;
+  background-color: black;
+}
+
+div.qaSubsection::selection{
+	color: lightgreen;
+	background: black;
+}
+
+div.question::-moz-selection{
+  color: gold;
+  background-color: black;
+}
+
+div.answer::-moz-selection{
+  color: skyblue;
+  background-color: black;
+}
+
+div.qaSubsection::-moz-selection{
+	color: lightgreen;
+	background: black;
+}
+
+h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, h5::-moz-selection, h6::-moz-selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+ol::selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+li::selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+p::selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+body::selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+p::-moz-selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+body::-moz-selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+textarea::selection, form::selection{
+	color:white;
+	background-color: black;
+}
+
+textarea::-moz-selection, form::-moz-selection{
+	color:white;
+	background-color: black;
+}
+
+ol::-moz-selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+li::-moz-selection{
+	color: lightgrey;
+	background-color: black;
+}
+
+table::selection, th::selection, td::selection{
+    color: lightgrey;
+    background-color: black;
+}
+
+table::-moz-selection, th::-moz-selection, td::-moz-selection{
+    color: lightgrey;
+    background-color: black;
+}

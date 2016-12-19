@@ -23,7 +23,7 @@ autoescape=True)
 # string would look like
 
 def parseUserString(string):
-    subStr = string + "\n"
+    subStr = string + ";"
 
     while subStr != "":
         if subStr[0] == ',':

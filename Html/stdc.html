@@ -11,11 +11,11 @@
     <li><a href="/logout">Logout</a></li>
 </ul>
 <h1>Welcome {{CurrentUser.userName}}</h1>
-
 Your Previously asked questions:
 <form action="/chat?" method="get">
     <table>
         <tr>
+					<th> </th>
           <th>Question</th>
           <th>Lecure</th>
           <th>Time</th>
@@ -34,28 +34,18 @@ Your Previously asked questions:
 
 <br>
 Ask new question:
-<form action="/studentcenter" method="post"><br>
+<form action="/studentcenter" method="post" id="questionForm"><br>
 Enter the Subject of the new question<br>
     <input type="text" name="topic" cols="48" placeholder="Subject" required=True></input><br>
 Enter the body of the question that you wish to ask<br>
     <textarea name="content" rows="5" cols="48" required=True placeholder="Enter the body of the question"></textarea><br>
     <select name="lecture" form="questionForm">
 			{%for l in LL %}
-	    <option value="{{l}}">{{l.name}}</option>
+	    <option value="{{l.name}}">{{l.name}}</option>
 			{% endfor %}
     </select><br>
     <input type="submit" value= "Ask question"/>
 </form>
 
-<div>
-    <form action="/studentcenter" method="post" value="faq">
-        <input type="text" name="lecture" required/> <br>
-        <input type="submit" value="Go to F.A.Q"><br>
-    </form>
-
-    <form action="/logout">
-        <input type="submit" value="Logout">
-    </form>
-</div>
 </body>
 </html>
