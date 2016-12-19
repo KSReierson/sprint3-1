@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<style>
+.city {
+   float: left;
+   margin: 10px;
+   padding: 10px;
+   max-width: 300px;
+   height: 300px;
+   border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h1>Responsive Web Design Demo</h1>
+<h2>Resize this responsive page!</h2>
+
+<div class="city">
+  <form action="/createUsers" method="post">
+    <textarea name="userText"></textarea>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<div class="city">
+  <form action="/enroll" method="post" >
+    <table>
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <th>Users</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+              <td><input type="checkbox" value="{{user.Name}}" name="users"> {{user.Name}} ({{user.userName}})<br></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </td>
+        <td align="top">
+          <table>
+            <tr align="top">
+              <th>Lectures</th>
+            </tr>
+            {% for l in lectures %}
+            <tr>
+              <td><input type="checkbox" value="{{l.name}}" name="lectures"> {{l.name}}<br></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<div class="city">
+  <form action="/createLecture" method="post">
+    <h2 style="color:black;"> Make new Lecture</h2>
+    <br>
+    <p>Make new Lecture down Below</p>
+    <input type="text" name="lecName" required="True">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>

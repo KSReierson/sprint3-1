@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Student Center</title>
+	<link rel="stylesheet" type="text/css" href="Style/style.css">
+</head>
+<body>
+<ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/faq">FAQ</a></li>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+<h1>Welcome {{CurrentUser.userName}}</h1>
+Your Previously asked questions:
+<form action="/chat?" method="get">
+    <table>
+        <tr>
+					<th> </th>
+          <th>Question</th>
+          <th>Lecure</th>
+          <th>Time</th>
+        </tr>
+        {% for q in QL %}
+        <tr>
+          <td> <input type="radio" name="Quest" value="{{q.key.urlsafe()}}"required></td>
+          <td>{{q.topic}}</td>
+          <td>{{q.lec}}</td>
+          <td>{{q.time}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="Go to Question">
+</form>
+
+<br>
+Ask new question:
+<form action="/studentcenter" method="post" id="questionForm"><br>
+Enter the Subject of the new question<br>
+    <input type="text" name="topic" cols="48" placeholder="Subject" required=True></input><br>
+Enter the body of the question that you wish to ask<br>
+    <textarea name="content" rows="5" cols="48" required=True placeholder="Enter the body of the question"></textarea><br>
+    <select name="lecture" form="questionForm">
+			{%for l in LL %}
+	    <option value="{{l.name}}">{{l.name}}</option>
+			{% endfor %}
+    </select><br>
+    <input type="submit" value= "Ask question"/>
+</form>
+
+</body>
+</html>

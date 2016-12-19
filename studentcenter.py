@@ -11,6 +11,7 @@ from google.appengine.ext import ndb
 from google.appengine.ext import testbed
 
 # Project imports
+from lecture import *
 from user import *
 from util import *
 from question import *
@@ -35,20 +36,22 @@ class StudentCenter(webapp2.RequestHandler):
             "QL" : QL,
             "LL": LL,
         }
-
         self.response.write(template.render(template_values))
 
     def post(self):
-        question = Question()
-        question.owner= self.request.cookies.get("CurrentUser")
-        question.topic = self.request.get("topic")
-        question.content = self.request.get("content")
-        question.lec = self.request.get("class")
-        question.time = datetime.datetime.now()
-        question.answered = False
-        question.message=[]
-
-        lecture = self.request.get("lecture")
-
-        question.put()
+        q = Question()
+        m = Message()
+        q.student = self.request.cookies.get("CurrentUser")
+        q.topic = self.request.get("topic")
+        m.content = self.request.get("content")
+        m.name = self.request.cookies.get("CurrentUser")
+        q.lec = self.request.get("lecture")
+        q.time = datetime.datetime.now()
+        q.answered = False
+        q.ML.append(m)
+        key = q.put()
+        m.put()
+        lec = Lecture.query(Lecture.name==self.request.get("lecture")).get()
+        lec.QL.append(key.urlsafe())
+        lec.put()
         self.redirect("/studentcenter" + "?quest" + self.request.get("Quest"))

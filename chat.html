@@ -1,0 +1,105 @@
+<html>
+<style>
+ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #e7e7e7;
+      background-color: #f3f3f3;
+}
+
+li {
+      float: left;
+}
+
+li a {
+      display: block;
+      color: #666;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+}
+
+li a:hover:not(.active) {
+      background-color: #ddd;
+}
+
+li a.active {
+      color: white;
+      background-color: #4CAF50;
+}
+
+      divi {
+      width: 200px;
+      height: 150px;
+      background: lightblue;
+      position: absolute;
+      -webkit-transition: height 2s; /* Safari */
+      transition: height 2s;
+}
+
+</style>
+<head>
+<title>
+FAQit Web App Chat
+</title>
+<link rel="stylesheet" type="text/css" href="Style/style.css">
+</head>
+<body>
+  <ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/faq">FAQ</a></li>
+    <li><a href="/logout">Logout</a></li>
+    {% if CurrentUser.aType == 'a' %}
+    <li><a href="/admin"> Admin Page </a></li>
+    {% endif %}
+  </ul>
+<h1>FAQit Chat Client</h1>
+<hr>
+<p>
+{{question.student}}'s Question for: {{ question.lec }}
+Total number of messages in this thread: {{size}}
+</p>
+
+<div class="chatArea">
+    {% for m in ML %}
+        {% if m.name != question.student%}
+            <div class="iMessage">
+                <div class="messageMeta">
+                    {{m.name}}<hr>
+                </div>
+                    {{m.content}}<hr>
+                <div class="messageMeta">
+                    {{m.time}}
+                </div>
+            </div>
+        {% else %}
+            <div class="sMessage">
+                <div class="messageMeta">
+                    {{m.name}}<hr>
+                </div>
+                    {{m.content}}<hr>
+                <div class="messageMeta">
+                    {{m.time}}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<p>
+<form action="{{chatKey}}" method="post">
+    <textarea name="message" placeholder="Ask New Question"></textarea><br>
+    <input type="submit" value="Send"/>
+</form>
+
+<form action="/" method="get">
+    <input type="submit" value="Back"/>
+</form>
+
+<hr>
+</p>
+
+</body>
+</html>
